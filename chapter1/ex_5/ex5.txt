@@ -1,0 +1,26 @@
+function    -> a piece of code that runs a bunch of statements
+output      -> whatever your program produces to the outside world
+compiler    -> a software that transforms source code in object code
+error       -> a problem with a program
+linker      -> a software that links multiple files in a single one, so the compile can compile it
+command line -> a window present in many operating systems to interact with the machine via commands
+executable  -> a program that can be ran
+object code -> binary code that the machine understands to run your program
+comment     -> a line of code that is ignored by the compiler, meant for communication between programmers.
+import      -> keyword to import libraries into your code
+library     -> standardized code made by other developers meant for use by others
+module      -> not really sure
+bug         -> an unexpected behavior in a program
+main()      -> the main function of a program, that represents its lifetime.
+C++         -> a programming language that improves C with object-orientation and other features
+IDE         -> integrated development environment
+source code -> code written by a programmer in a programming language
+statement   -> a piece of action, i.e a line of code
+#include    -> keyword used to include a library or file into your code
+debugging   -> the action of executing a code line by line to investigate its behavior
+<<          -> output operator
+header file -> a file containing declarations for functions or classes
+program     -> a sequence of actions
+compile-time-> what happens during compilation
+cout        -> character output stream
+std         -> standard library
