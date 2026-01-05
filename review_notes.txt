@@ -1,0 +1,325 @@
+========== Chapter 1 - Questions ==========
+
+1) What is the purpose of the "Hello, World" program?
+  A: to push the "Hello, World" string to the character standard output stream
+
+2) Name the four parts of a function
+  A: return type, name, parameter list, statements
+
+3) Name a function that must appear in every C++ program.
+  A: int main()
+
+4) In the "Hello, World" program, what is the purpose of the line return 0;?
+  A: to return an integer to the system that represents the output of the program, i.e 0 meaning success.
+
+5) What is the purpose of the compiler? 
+  A: to transform human-readable source code into machine-readable source code.
+
+6) What is the purpose of the import statement? 
+  A: to import the necessary modules to use std::cout
+
+7) What is the purpose of the #include directive?
+  A: to import a library as part of your source code.
+
+8) What does a .cpp suffix at the end of a file name signify in C++? 
+  A: the file is a c++ source file
+
+9) What does the linker do for your program? 
+  A: it links the linked libraries so the compiler can generate the final object code
+
+10) What is the difference between a source file and an object file? 
+  A: a source file is a human-written file in a programming language format. an object file is a machine-readable file that executes said source file instructions
+
+11) What is an executable? 
+  A: it's the program that the user can execute.
+
+12) What is an IDE and what does it do for you? 
+  A: an integrated development environment is meant to supply the developer with many useful tools as to produce, run, test, and debug code. 
+
+13) How do you get a compiled program to run? 
+  A: after generating the executable, use the command ./filename
+
+14) What is a comment? 
+  A: a line in a source file that is ignored by the compiler. it's meant for the developer to communicate a message about their code. 
+
+15)  WHat is the purpose of a drill? 
+  A: to induce the student to reproduce simple steps to slowly graps the working of a program
+
+16) If you understand everything in the textbook, why is it necessary to practice? 
+  A: because programming is only built through heavy practicing. 
+
+========== Chapter 2 - Review ==========
+
+1) WHat is meant by the term promp?
+  A: it's a terminal call to action for the user
+
+2) Which operator do you use to read into a variable? 
+  A: >>
+
+3) What notations can you use to initializa an object?
+  A: (), {}, =, ={}
+
+4) If you want the user to input an integer value into your program for a variable named number, what are two lines of code you could write to ask the user to do it and to input the value into your program?
+  A: std::cout << "Please enter a number: "; std::cin >> number;
+
+5) What is \n called and what purpose does it serve? 
+  A: the newline character, it skips a line.
+
+6) What terminates input into a string?
+  A: whitespace
+
+7) What terminates input into an integer?
+  A: any non-numerical character
+
+8) How would you write the following as a single line of code: 
+  std::cout << "Hello,";
+  std::cout << first_name;
+  std::cout << "!\n"
+
+  A: std::cout << "Hello, " << first_name << "!\n";
+
+9) What is an object?
+  A: a piece of memory that holds a value of a given type
+
+10) What is a literal? 
+  A: a piece of data that is literally written within code i.e simple_error("literal")
+
+11) What kinds of literals are there? 
+  A: integer, float, char, string, bool
+
+12) What is a variable? 
+  A: an object that contains a type and holds data of given type
+
+13) What are typical sizes for a char, int and double? 
+  A: char = 8 bits, int = 32 bits, double = 64 bits
+
+14) What measures do we use for the size of small entities in memory? 
+  A: bytes/bits
+
+15) What is the difference between = and ==?
+  A: = -> assignment; == -> comparison
+
+16) What is a definition?
+  A: A definition is the implementation of a type/declaration. 
+
+17) What is an initialization and how does it differ frmo an assignment? 
+  A: an initialization is the act of giving a variable its initial value, whilst an assignment is giving a variable a new value. 
+
+18) What is a string concatenation and how do you make it work in c++?
+  A: it's the action of joining 2 strings together. it can be accomplished via + operator.
+
+19) What operators can you apply to an int?
+  A: +, -, *, /, \, %, =, ==, !=, <, >, >=, <=
+
+20) Which of the following are legal names in c++? If a name is not legal, why not?
+  A: 
+  This_little_pig -> legal
+  George@home     -> illegal -> no symbols allowed
+  correct?        -> illegal -> no symbols allowed
+  This_1_is_fine  -> legal
+  _this_is_ok     -> legal but not recommended
+  stroustrup.com  -> illegal -> period not allowed
+  2_for_1_special -> illegal -> can't start with number
+  MineMineMine    -> legal
+  $PATH           -> illegal
+  latest thing    -> illegal -> no whitespace
+  number          -> legal
+
+21) GIve five examples of legal names that you shouldn't use because they are likely to cause confusion.
+  A: names that use number 0, O, o, l, I, _ at the start
+
+22) What are some good rules for choosing names?
+  A: be descriptive but concise, use _ for spacing words
+
+23) What is type safety and why is it important? 
+  A: type safety is ensuring that the operations done with a variable will respect its type. These errors are not blocked by the compiler and can cause obscure malfunctions in your program.
+
+24) Why can conversion from double to int be a bad thing? 
+  A: narrowing
+
+25) Define a rule to help decide if a conversion from one type to another is safe or unsafe? 
+  A: sizeof(target) < sizeof(initial)
+
+26) How can we avoid undesirable conversions? 
+  A: use initializer list {} as it blocks narrowing, use narrow<T>x when narrowing is actually desired. 
+
+27) What are the uses of auto? 
+  A: When we want for the compiler to infer the type of the variable. It can be specially useful when the return type is long or hard to type, such as in iterators.
+
+========== Chapter 3 - Review ==========
+
+1) What is computation? 
+  A: The act of producing an output from a sequence of operations.
+
+2) What do we mean by inputs and outputs to a computation? Give Examples
+  A: inputs are what the program receives so it's able to produce a relevant output. Inputs can come from various sources, such as hardware, I/O devices, other programs.
+
+3) What are the three requirements a programmer should keep in mind when expressing computations?
+  A: Correctness, simplicity and efficiency.
+
+4) What does an expression do? 
+  A: An expression computes a value from a number of operands. 
+
+5) What is the difference between a statement and an expression, as described in this chapter? 
+  A: A statement is a definition of action that can be, or contain, expressions.
+
+6) What is an lvalue? List the operators that require an lvalue. Why do these operators, and not the others, require an lvalue?
+  A: An lvalue is an expression that appears on the left-hand side of an expression. The operators that require an lvalues are the increment and decrement ones. other operators can produce output with only rvalues. Except decrement and increment. For example, it would make no sense to use '++2'; here, '2' is an rvalue and the output of this operation is completely useless, thus requiring an lvalue.
+
+7) What is a constant expression?
+  A: An expression that is initialized once and cannot be further assigned.
+
+8) What is a literal? 
+  A: The simplest form of an expression, and always an rvalue.
+
+9) What is a symbolic constant and why do we use them? 
+  A: A constant that is known at compile time and should not change across the whole execution of the program.
+
+10) What is a magic constant? Give examples.
+  A: A constant written as a literal. Example: 3.14
+
+11) What are some operators that we can use for integers and floating-point values?
+  A:  -, +, *, /, !=, ==
+
+12) What operators can be used on integers but not on floating-point numbers. 
+  A: comparison operators as the internal precision when rounding floating-point numbers can cause unpredictible behavior.
+
+13) What are some operators that can be used for strings?
+  A: =, ==, !=, +, {}, 
+
+14) When would a programmer prefer a switch-statement over an if-statement? 
+  A: When the input of the switch's expression can be mapped to a few certain cases; when trying to improve readability;
+
+15) What are some common problems with switch statements?
+  A: Forgetting to break, using unallowed type in case definition, not setting a default fallback
+
+16) What is the function of each part of the header line in a for-loop, and in what sequence are the executed?
+  A: starting-point; condition; action
+    the starting-point is executed once at the beginning, the condition is verified at the start of every loop and the action is executed if the condition hasn't been reached.
+
+17) When should the for-loop be used and when should the while-loop be used?
+  A: the for loop should be used most of the times for readability and when the starting point / end condition are clearly defined. A while loop can be used in the opposite case. 
+
+18) Describe what the line char foo(int x) means in a function definition.
+  A: char is the return type of the function, foo is its identifier and int x is its only parameter.
+
+19) When should you define a separate function for part of a program? List reasons. 
+  A: For readability, simplicity. To follow the 'divide and conquer' philosophy
+
+20) What can you do to an int that you cannot do to a string? 
+  A: decrement, multiply, divide
+
+21) What can you do to a string that you cannot do to an int? 
+  A: concatenate,
+
+22) What is the index of the third element of a vector?
+  A: 2
+
+23) How do you write a for-loop that prints every elemnt of a vector? 
+  A: for(auto x: vec) std::cout << x;
+
+24) What does vector<char>alphabet(26); do?
+  A: initializes a vector of size 26 with empty chars.
+
+25) Describe what push_back() does to a vector. 
+  A: pushes a value to its end
+
+26) What does vector's member size() do?
+  A: returns the size of the vector
+
+27) What makes vector so popular/ useful?
+  A: doing repetitive operations, storing data.
+
+28) How do you sort the elements of a vector? 
+  #include <algorithm>
+  #include <ranges>
+  std::range::sort(vec);
+
+========== Chapter 4 - Review ==========
+
+1) Name four major types of errors and briefely define each one.
+  A: Compile-time : errors while trying to compile, usually happen when incorrectly expressing language std code. 
+     Link-error: Error when the linker is linking libraries into object code
+     Run-time: Errors that can happen during execution
+     Logical-errors: Fundamental error in the solution of the problem.
+
+2) What kinds of errors can we ignore in student programs? 
+  A: idk
+
+3) What guarantees should every completed project offer? 
+  A: it should the desired results for all legal inputs and give reasonable error messages for all illegal inputs.
+
+4) List three approaches we can take to eliminate problems in programs and produce acceptable software. 
+  A: breaking code in small functions, write pre and post conditions, consistent error treating and reporting.
+
+5) Why do we hate debugging? 
+  A: It's tedious.
+
+6) What is a syntax error?
+  A: A mistake in spelling code the way the language std expects it. 
+
+7) What is a type error? 
+  A: Assigning a type that is not expected, given a certain variable, or parameter. Using undefined funcition.
+
+8) What is a linker error? 
+  A: when the linker fails to orient the compiler into finding the declared functions' definitions.
+
+9) What is a logic error? 
+  A: the programmer failed to express the solution of the problem. 
+
+10) List four potential sources of errors discussed in the text. 
+  A: Bad input, Range errors, Bad arguments, exceptions
+
+11) How do you know if a result is plausible? What techniques do you have to answer such questions? 
+  A: using logic and solving the problem in your mind can give you an ideia of a plausible output, thus helping you debug.
+
+12) How do you test if an input operation succeded?
+  A: by testing cin; if(cin)
+
+13) Caller checking for errors vs callee checking for error: 
+  A: A caller having to check for errors is not ideal. It produces messy code and has expectations that the caller will have to check for every single call of the function. 
+  A callee checking for its own errors is way better, since it's done in one place and the caller can expect an error-handled output.
+
+14) When is throwing an exception better than returning an error value? 
+  A: Sometimes, returning an error value is not reasonable. For example, a function that returns int can return -1 as an error; but that can be quite ambiguous since -1 is an integer. Having to rule-check if a return value is valid or not in these cases is just not worth your headache.
+
+15) When is returning an error value better than throwing an exception?
+  A: Only when the behaviour of a function is extremely predictible and a return-value error can be easilly remediated.
+
+16) Describe the process of how exceptions are thrown and catched. 
+  A: A function checks for bad input and throws an exception to whoever tries to catch it. 
+     A function caller can try(function()) and catch(exception) to handle it however.
+
+17) Whys is calling a vector at v[v.size()] an error? What could be the result of calling this?
+  A: Because vectors start at index 0, meaning the last index will always be vector.size()-1. An out of range exception will be thrown.
+
+18) What is an assertion? 
+  A: An assert is a statement that tells us what the codes expect behaviour-wise up until the point where it's defined.
+
+19) Define precondition and postcondition. 
+  A: A pre-condition is an expression that sets boundaries for what is allowed in the function arguments. 
+     A post-condition is a check on the return value before returning it.
+
+20) When would you not test a pre-condition?
+  A: When there's no arguments.
+
+21) When would you not test a post-condition?
+  A: When there's no return value.
+
+22) What are the steps in debugging a program?
+  A: Get the program to compile -> Get it to link -> Get it to produce the expected output.
+
+23) What does commenting help on debugging?
+  A: To clarify a function's expected workflow. 
+     To clarify anything that isn't better explained by only the code (i.e something that looks odd; comment explain why it looks odd)
+
+24) How does testing differ from debugging?
+  A: Testing is the act of providing 'n' inputs to a function to observe its behaviour.
+     Debugging is the act of finding bugs in a program
+
+25) What is a random number? 
+  A: A number randomly generated for a purpose. 
+
+26) How do we use random_int() and seed()
+  A: random_int(lower_bound, upper_bound); 
+     seed() -> seeds the engine (runtime). we can also provide a value to seed for testing purposes
