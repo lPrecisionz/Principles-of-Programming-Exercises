@@ -31,8 +31,7 @@ vector<int> read_inputs(){
     if(inputs[i] < MIN_VALUE || inputs[i] > MAX_VALUE || !std::cin)
       throw std::out_of_range("Error: invalid input.");
   }
-  
-  PPP::seed(inputs[VECTOR_SIZE-1]);
+
   return inputs;
 }
 
@@ -88,43 +87,34 @@ void show_result(const vector<int> &guess, const vector<int> &truth){
   std::cout << bull_hits << " bulls and " << cow_hits << " cows." << std::endl;
 }
 
-bool play_round(vector<int> &guess){
-  vector<int> truth;
-  bool quit = false;
-  while(!quit){
-    std::cout << "Try to guess our 4 number vector! (numbers 0 - 9)\n";
+void play_round(const vector<int> &guess, const vector<int> &truth){
+  while(guess != truth){
+
+  }
+}
+
+int main(){
+  PPP::seed();
+
+  vector<int> input_guess, 
+              truth {generate_truth()};
+  
+  while(true){
+    std::cout << "Bulls and Cows!" << std::endl << "Try to guess our 4 number vector! (numbers 0 - 9)\n";
     std::cout << "Your input: ";
 
     try{
-      guess = read_inputs();
-      truth = generate_truth();
+      input_guess = read_inputs();
     } catch (const std::exception &e){
       std::cerr << e.what() << std::endl;
-      return false;
+      return -1;
     }
 
     std::cout << "truth: "; 
     print_vector(truth);
-    show_result(guess, truth);
-    if(guess != truth){
-      std::cout << "\nTry again!\n";
-    } else {
-      quit = true;
-    }
+    show_result(input_guess, truth);
   }
 
-  std::cout << "You got it!" << std::endl;
-  return true;
-}
-
-int main(){
-  vector<int> input_guess; 
- 
-  std::cout << "Bulls and Cows!" << std::endl; 
-  while(play_round(input_guess)){
-    std::cout << "Generated new answer." << std::endl;
-    input_guess = {};
-  }
   return 0;
 }
 
