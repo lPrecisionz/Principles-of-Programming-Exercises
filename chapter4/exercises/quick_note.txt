@@ -1,0 +1,6 @@
+quick note: 
+
+some exercises have continuity. i.e "for this exercise, modify your latest program"
+that said, i've made the mistake of not creating new directories/files for a 'modify your previous' exercise
+
+so exercise numbers might be a bit junky. 
