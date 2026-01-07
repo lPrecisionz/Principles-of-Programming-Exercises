@@ -15,7 +15,13 @@ void read_n(int &n){
 }
 
 std::vector<int> first_n_fibonacci(const int n){
-  std::vector<int>fib {0, 1};
+  std::vector<int>fib;
+
+  fib.push_back(0);
+  if(n == 1) return fib;
+
+  fib.push_back(1);
+  if(n == 2) return fib;
 
   for(size_t i = 2; i < n; ++i){
     int a = fib[i-2];
