@@ -82,7 +82,7 @@ another great tool is to evaluate expressions as we read from input.
 first try at an expression: 
 
 double expression(){
-  double left = token();
+  double left = expression();
   Token t = get_token();
 
   switch(t.kind){
@@ -150,7 +150,7 @@ double expression(){
   }
 }
 
-this is similar to the first attempt. The difference is that instead of calling expression(); again, we just implemented our own little expression() call in form of a loop.
+this is similar to the first attempt. The difference is that instead of calling expression(); again, we just implemented our own little expression() call in form of a loop whilst also respecting the expression in our grammar.
 
 
 Term
@@ -197,3 +197,19 @@ Primary:
   Number
   "(" Expression ")"
 
+primary(){
+  Token t = get_token();
+  switch(t.kind){
+    case '()':{
+      double d = expression(); 
+      t = get_token(); 
+      if(t!= ')')
+        error("missing )");
+      }
+      return d;
+    case '8':
+      return t.value;
+    default:
+      error("primary expected");
+  }
+}
