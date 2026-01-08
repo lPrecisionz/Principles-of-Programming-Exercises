@@ -1,0 +1,199 @@
+tokenizing inputs; 
+
+example in an expression: 
+
+45+11.5/4 should produce the list of tokens
+
+45
++
+11.5
+/
+4
+
+tokens we need: 
+
+  - floating point literals
+  - operators (+, -, *, /, %)
+  - Parentheses ()
+
+we can create a user-defined-type Token to classify our input more easilly
+
+class Token{
+  public:
+    char kind; 
+    double value;
+}
+
+we'll use kind as the value itself for tokens that aren't numbers.
+for number kind, let us use the character '8', an arbitrary choice, one could say.
+
+example: 
+
+Token a {'8', 1.0};
+Token b {'+'};
+
+so we could represent an expression (1.5+4) * 11 as: 
+
+kind'('   8   '+'   '8'   ')'   '*'   '8'
+
+we can update our class to have the necessary constructors
+
+class Token{
+  public:
+    char kind; 
+    double value;
+    Token(char k) : kind{k}, value {0.0}(){}
+    Token(char k, double v) : kind(k), value(v)(){}
+}
+
+using a grammar to solve the expressiong parsing problem: 
+
+a grammar is a useful tool to describe a problem in a way we'll be able to implement later in our program. 
+
+Expression: 
+  Term
+  Expression "+" Term
+  Expression "-" Term
+Term: 
+  Primary
+  Term "*" Primary
+  Term "/" Primary
+  Term "%" Primary
+Primary: 
+  Number
+  "(" Expression ")"
+Number:
+  Floating-point literal
+
+go through every token and make them an expression, until we have a full expression
+this entails that we are stripping each token up until we can solve our expression.
+
+
+for turning this grammar into a programming tool, we'll have a function for each rule, also a function for our class Token. 
+
+get_token();
+expression();
+term();
+primary();
+
+another great tool is to evaluate expressions as we read from input.
+
+
+first try at an expression: 
+
+double expression(){
+  double left = token();
+  Token t = get_token();
+
+  switch(t.kind){
+    case '+':
+      return left + expression();
+      break
+    case '-':
+      return left - expression();
+      break;
+    default: 
+      return left;
+  }
+}
+
+this attempt of implementation has a core fault. we can't start by reading a Term then follow by reading an expression, because if we look at our grammar, we have: 
+
+Expression: 
+  Term
+  Expression "+" Term
+  Expression "-" Term
+
+and not 
+
+Expression: 
+  Term
+  Term "+" Expression
+  Term "-" Expression (this is what we're doing with the above code) 
+
+so, 1-2-3 would return 2 - (2-3) instead of (1-2)-3. It's necessary that we respect the order to which we evaluate our expression.
+
+second attempt: 
+
+double expression(){
+  double left = term();
+  token t = get_token();
+  while(t.kind == '-' || t.kind == '+'){
+    if(t.kind == '+')
+      left+=term;
+    else
+      left-=term;
+    t = get_token();
+  }
+  return left;
+}
+
+this sorta looks correct (as in, it respects the nature of an expression as defined in our grammar), but a bit obsucure due to the duplicate checks for + or -
+
+double expression(){
+  double left = term(); 
+  Token t = get_token();
+
+  while(true){
+    switch(t.kind){
+      case '+'
+        left+=term();
+        t = get_token();
+        break;
+      case '-'
+        left-=term;
+        t = get_token();
+        break;
+      default: 
+        return left;
+    }
+  }
+}
+
+this is similar to the first attempt. The difference is that instead of calling expression(); again, we just implemented our own little expression() call in form of a loop.
+
+
+Term
+
+grammar reminder: 
+
+Term: 
+  Primary
+  Term "*" Primary
+  Term "/" Primary
+  Term "%" Primary
+
+double term(){
+  double left = primary();
+  Token t = get_token();
+
+  while(true){
+    switch(t.kind){
+      case '*':
+        left*=primary();
+        t = get_token();
+        break;
+      case '/':{
+        double d = primary();
+        if(d == 0)
+          error("error: division by zero");
+        left/=d;
+        t = get_token();
+        break;
+      } // reminder: declaring variables inside switch, requires brackets
+        //note that there is no %, as it's not supported by floats. 
+        //we'll tackle this later.
+      default:
+        return left;
+    }
+  }
+}
+
+
+Primary
+
+grammar reminder:
+Primary: 
+  Number
+  "(" Expression ")"
+
