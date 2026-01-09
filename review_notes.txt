@@ -353,7 +353,7 @@
 
 9) According to the outline in the chapter, describe the difference between a Term, an Expression, a Number, and a Primary. 
   A: An expression is either a Term, or An expression followed by a +/- followed by a term.
-  A term is either a Primary, or a Term followed by a *, /, or %. 
+  A term is either a Primary, or a Term followed by *, /, or %. 
   A Primary is either a Number, or an Expression surrounded by ()
   A number is a string literal floating-point number.
 
@@ -363,4 +363,52 @@
      the result of the expression 5-1 '4', gives us a 21/4 which is, again, a term followed by a primary.
 
 11) Why does the program not have a function called number()? 
-  A: 
+  A: not sure what number() stands for
+
+12) What is a token? 
+  A: A user-defined type that consists of a 'kind' and 'value'.
+
+13) What is a grammar? A grammar rule? 
+  A: A grammar is a standardized approach to analyzing a problem. It provides a concise but comprehensive view of the problem. A grammar rule is a statement in the grammar that defines a rule and its properties.
+
+14) What is a class? What do we use classes for? 
+  A: A class is a resource where the program can create their own type by using either primitive types, or even other class types. A class can have its own methods which allows for better code as tasks can be divided.
+
+15) How can we provide a default value for a member of a class? 
+  A: We assign it in the class definition. i.e. char kind {'0'};
+
+16) In the expression function, why is the default for the switch-statement to "put back" the token.
+  A: It means that the expression doesn't have anything else to do with the character that's in the token stream, so it returns it to the stream and allows for whoever called expression() to continue. 
+
+17) What is a "look-ahead"?
+  A: being able to visualize what's happening in the current input whilst the actual logic is being executed a few steps behind.
+
+18) What does putback() do and why is it useful? 
+  A: It puts a token back in the token stream. Its utility is to delegate a character to the next caller of our recursive descent. 
+
+19) Why is the remainder (modulus) operation, %, difficult to implement in the term? 
+  A: because % doesn't work for doubles, only integers. 
+
+20) What do we use the two data members of the Token class for? 
+  A: The 'kind' member is used to signify which rule the expression should call for a given character. The 'value' member is used only for Tokens of kind '8' to do the arithmetic stuff.
+
+21) Why do we (sometimes) split a class's members into private and public members? 
+  A: Public members are meant to be used by an external caller and has been developed for that purpose, whilst a private member is only used by an object of the class itself to handle their data/logic.
+
+22) What happens in the Token_stream class when there is a token in the buffer and the get() function is called? 
+  A: it returns the Token that is currently in the token stream and sets the full property to false. 
+
+23) Why were ';' and 'q' characters added to the switch-statement in the get() function of the Token_stream class? 
+  A: the semicolon was added to finish an expression. This was important for the program to read another token in the buffer after the last number of the expression was inputted (because it was being stored there and never retrieved.). The 'q' character was inserted as a way of being able to leave the program without having to purposefully generate an error (invalid token)
+
+24) When should we start testing our program? 
+  A: As soon as we have a first version running. 
+
+25) What is a "user-defined type"? Why would we want one? 
+  A: It's a way for the programmer to compose their own type. The programming language couldn't possibly express every kinds of types that can be represented in the world, so they provide the tools for the developers to do so for their own cases. 
+
+26) What is the interface to a C++ user-defined type?
+  A: class
+
+27) Why do we want to rely on libraries of code? 
+  A: When trying to solve a problem, it is certain that a couple of tools you need have already been created by other developers. There is no need to reinvent the wheel in these cases. However, reinventing the wheel is interesting if you're trying to learn. 
