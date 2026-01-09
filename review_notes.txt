@@ -323,3 +323,44 @@
 26) How do we use random_int() and seed()
   A: random_int(lower_bound, upper_bound); 
      seed() -> seeds the engine (runtime). we can also provide a value to seed for testing purposes
+
+
+========== Chapter 5 - Review ==========
+
+1) What do we mean by programming is understanding? 
+  A: Programming requires a deep understanding of the problem you're solving; as you'll need to express the solution in computation, which can be quite daunting.
+
+2) The chapter details the creation of a calculator program. Write a short analysis of what the calculator should be able to do. 
+  A: The calculator should be able to receive an expression, parse it, and return a value with the expression's result. 
+
+3) How do you break a problem up into smaller manageable parts? 
+  A: First you characterize what you're trying to accomplish. Then try to figure out what is needed to achieve that from the bottom up with as much detail as possible, that will give you some hints of smaller things you can work on before tackling the big picture problem.
+
+4) Why is creating a small, limited version of a program a good idea? 
+  A: It gives you a base understanding of what you're trying to tackle by showing you a few problems you hadn't thought about with the initial idea. 
+
+5) Why is feature creep a bad idea? 
+  A: by trying to solve more problems than what you can handle at a certain point, you'll hit dead ends quite fast, which can be demorilizing. That's why it's important to divide the problem in small manageable problems.
+
+6) What are the three main phases of software development? 
+  A: Understanding the problem, Designing a solution, Implementing it. 
+
+7) What is a "use case"? 
+  A: A use case is an interaction the user can make with your program.
+
+8) What is the purpose of testing? 
+  A: Finding flaws in your solution.
+
+9) According to the outline in the chapter, describe the difference between a Term, an Expression, a Number, and a Primary. 
+  A: An expression is either a Term, or An expression followed by a +/- followed by a term.
+  A term is either a Primary, or a Term followed by a *, /, or %. 
+  A Primary is either a Number, or an Expression surrounded by ()
+  A number is a string literal floating-point number.
+
+10) In the chapter, an input was broken down into its components: Terms, Expressions, Primarys and numbers. Do this for (17+4)/(5-1)
+  A: the first () is a primary, which contains an expression '17+4' inside of it
+     then, the result of 17+4 '21' is a term followed by '/' and the primary () which contains an expression.
+     the result of the expression 5-1 '4', gives us a 21/4 which is, again, a term followed by a primary.
+
+11) Why does the program not have a function called number()? 
+  A: 
