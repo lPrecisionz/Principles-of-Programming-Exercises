@@ -1,0 +1,108 @@
+grammar for bitwise logical operators.
+
+possible operators are: 
+  
+! -> not
+~ -> complement
+& -> and
+| -> or
+^ -> xor
+
+points to acknowledge
+
+! and ~ are prefix unary operators (possibly our primary)
+^ binds tighter than |
+& binds tighter than ^
+
+apparent order (top - bottom):
+
+&
+^
+|
+! ~
+bits
+
+actually, our primary are probably the bits themselves
+
+the question says that these are logical expressions, so our top is probably an expression
+
+first sketch:
+
+Expression: 
+  Ors
+  Expression & Ors 
+Ors:          // no idea how to name this
+  Unary
+  Idk ^ Unary
+  Idk | Unary
+Unary: 
+  Bit
+  ~ Bit
+  ! Bit
+Bit: 
+  0
+  1
+
+I think bits can be a collection of bits, not sure
+
+^ and | should probably be in different levels (^ below)
+
+
+After some thought.. 
+
+Unary should be before the operand, as we could parse !!, for example
+give ^ and | their own levels
+change bit to literal or whatever
+
+second attempt
+
+Expression:
+  Or
+  Expression & Or
+
+Or:
+  Xor
+  Or | Xor
+
+Xor:
+  Primary
+  Xor ^ Primary 
+
+Primary:
+  Unary
+  Literal
+
+Unary: 
+  !
+  ~
+
+gpt said above was miserable so here we go again: 
+
+actually misunderstood "tighter binding" in reverse order, so here's a redo: 
+
+! -> not
+~ -> complement
+& -> and
+^ -> xor
+| -> or
+  
+Expression: 
+  Xor
+  Expression | Xor
+Xor:
+  And
+  Xor ^ And
+And: 
+  Unary
+  And & Unary
+Unary: 
+  Primary
+  ~ Unary
+  ! Unary
+Primary: 
+  Number
+  "(" Expression ")"
+Number: 
+  Integer literal
+
+I think that's the best I can guess following the arithmetic one. 
