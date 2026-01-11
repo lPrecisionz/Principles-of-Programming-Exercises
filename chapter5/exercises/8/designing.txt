@@ -1,0 +1,41 @@
+As a task for this exercise; this document is meant to plan out the design of the program.
+
+What should the program do? 
+  
+  User receives prompt -> 
+    Do you wish to do permutation or Combination? 
+
+  User inputs answer -> 
+    'p' or 'c'
+
+  User responds 'p' or 'c' -> 
+    Prompt user for a and b.
+  
+  Show Result. -> Go back to start
+
+Formulas
+  P(a, b) = (a!) / ((a-b)!)
+  C(a, b) = (P(a,b))/(b!)
+
+Pseudo code: 
+
+while(true){
+  read_input(operation);
+  if(operation == 'q') break;
+  read_input(a, b);
+  show_result(a, b, operation);
+}
+
+class Solver{
+  int a, b;
+  char operation;
+
+  void read_input();
+  void show_result;
+
+  private: 
+    int solve();
+    int factorial();
+    int permutation();
+    int combination();
+}
