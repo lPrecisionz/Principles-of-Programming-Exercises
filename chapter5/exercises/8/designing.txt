@@ -39,3 +39,6 @@ class Solver{
     int permutation();
     int combination();
 }
+
+
+(3 * 7) - 5/3 + 4

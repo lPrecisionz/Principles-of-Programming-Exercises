@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 class Solver{
 public: 
@@ -35,7 +36,11 @@ void Solver::read_values(){
 int Solver::factorial(int n){
   if(n==0) return 1;
   // if next fatorial > limit 32 bit -> erro 
-  return n * Solver::factorial(n-1);
+  int result = n * factorial(n-1);
+  if(result > std::numeric_limits<int>::max() / n)
+    throw std::out_of_range("Error: factorial number surpassed int limit");
+
+  return result;
 }
     
 int Solver::permutation(){
